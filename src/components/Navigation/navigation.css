@@ -26,6 +26,7 @@ nav {
   text-transform: uppercase;
   color: #FFFFFF;
   cursor: pointer;
+  letter-spacing: 1px;
 }
 
 .nav-list .active {

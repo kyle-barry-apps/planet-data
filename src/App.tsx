@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import Main from './components/Main/Main';
 import Planet from './models/Planet';
+import { PlanetProvider } from './contexts/PlanetContext';
 import './App.css';
 
 function App() {
@@ -20,10 +21,10 @@ function App() {
 
 
   return (
-    <>
-    <Navigation />
-    <Main planetData={data}/>
-    </>
+    <PlanetProvider>
+      <Navigation />
+      <Main planetData={data}/>
+    </PlanetProvider>
   );
 }
 
