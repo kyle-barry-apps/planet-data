@@ -1,4 +1,4 @@
-import {FC, useContext, useState} from 'react'
+import {FC, useContext, useState, useEffect} from 'react'
 import { PlanetContext } from '../../contexts/PlanetContext';
 import Planet from '../../models/Planet'
 import './main.css'
@@ -8,6 +8,17 @@ interface MainProps {
 }
 
 const Main: FC<MainProps> = ({ planetData }) => {
+
+  const planetColors: { [key: string]: string } = {
+    mercury: '#419EBB',
+    venus: '#EDA249',
+    earth: '#6D2ED5',
+    mars: '#D14C32',
+    jupiter: '#D83A34',
+    saturn: '#CD5120',
+    uranus: '#1EC1A2',
+    neptune: '#2D68F0'
+  }
 
   const [selectedDescription, setSelectedDescription] = useState<string>('overview')
 
@@ -29,6 +40,16 @@ const Main: FC<MainProps> = ({ planetData }) => {
   const geologyImage: string | null = 
     selectedDescription === 'geology' ? `assets/geology-${selectedPlanet?.name.toLowerCase()}.png` : null
 
+  const getBackgroundColor = (): string => {
+    if (selectedPlanet) {
+      return planetColors[selectedPlanet?.name.toLowerCase()]
+    }
+    else {
+      return ''
+    }
+  }
+
+
   return (
     <main className='main-container'>
        <div className="main__img-container">
@@ -48,9 +69,15 @@ const Main: FC<MainProps> = ({ planetData }) => {
           </div>
         </div>
         <div className="main__options">
-          <div className={selectedDescription === 'overview' ? "main__btn active" : 'main__btn'} onClick={() => setSelectedDescription('overview')}>01 Overview</div>
-          <div className={selectedDescription === 'structure' ? "main__btn active" : 'main__btn'} onClick={() => setSelectedDescription('structure')}>02 Internal Structure</div>
-          <div className={selectedDescription === 'geology' ? "main__btn active" : 'main__btn'} onClick={() => setSelectedDescription('geology')}>03 Surface Geology</div>
+          <div className={selectedDescription === 'overview' ? 'main__btn active' : 'main__btn'} style={{
+            backgroundColor: selectedDescription === 'overview' ? getBackgroundColor() : 'transparent'
+          }} onClick={() => setSelectedDescription('overview')}>01 Overview</div>
+          <div style={{
+            backgroundColor: selectedDescription === 'structure' ? getBackgroundColor() : 'transparent'
+          }} className={selectedDescription === 'structure' ? 'main__btn active' : 'main__btn'}onClick={() => setSelectedDescription('structure')}>02 Internal Structure</div>
+          <div style={{
+            backgroundColor: selectedDescription === 'geology' ? getBackgroundColor() : 'transparent'
+          }} className={selectedDescription === 'geology' ? 'main__btn active' : 'main__btn'} onClick={() => setSelectedDescription('geology')}>03 Surface Geology</div>
         </div>
        </div>
     </main>
