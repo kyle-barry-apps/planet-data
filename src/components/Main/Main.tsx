@@ -52,34 +52,55 @@ const Main: FC<MainProps> = ({ planetData }) => {
 
   return (
     <main className='main-container'>
-       <div className="main__img-container">
-        <img src={imgToDisplay} alt="planet" />
-        {geologyImage && <img className='main__geology-image' src={geologyImage} alt='geology'/>}
-       </div>
-       <div className="main__data">
-        <div className="main__data-container">
-          <h1>{selectedPlanet?.name}</h1>
-          <div className="main__description">
-            <p>
-            {selectedDescription === 'overview' ? selectedPlanet?.overview.content : selectedDescription === 'structure' ? selectedPlanet?.structure.content : selectedPlanet?.geology.content}
-            </p>
+      <div className="main__img-and-data-container">
+      <div className="main__img-container">
+          <img src={imgToDisplay} alt="planet" />
+          {geologyImage && <img className='main__geology-image' src={geologyImage} alt='geology'/>}
+         </div>
+         <div className="main__data">
+          <div className="main__data-container">
+            <h1>{selectedPlanet?.name}</h1>
+            <div className="main__description">
+              <p>
+              {selectedDescription === 'overview' ? selectedPlanet?.overview.content : selectedDescription === 'structure' ? selectedPlanet?.structure.content : selectedPlanet?.geology.content}
+              </p>
+            </div>
+            <div className="main__wiki">
+              Source : <a target='_blank' href={selectedPlanet?.overview.source}>Wikipedia</a>
+            </div>
           </div>
-          <div className="main__wiki">
-            Source : <a target='_blank' href={selectedPlanet?.overview.source}>Wikipedia</a>
+          <div className="main__options">
+            <div className={selectedDescription === 'overview' ? 'main__btn active' : 'main__btn'} style={{
+              backgroundColor: selectedDescription === 'overview' ? getBackgroundColor() : 'transparent'
+            }} onClick={() => setSelectedDescription('overview')}>01 Overview</div>
+            <div style={{
+              backgroundColor: selectedDescription === 'structure' ? getBackgroundColor() : 'transparent'
+            }} className={selectedDescription === 'structure' ? 'main__btn active' : 'main__btn'}onClick={() => setSelectedDescription('structure')}>02 Internal Structure</div>
+            <div style={{
+              backgroundColor: selectedDescription === 'geology' ? getBackgroundColor() : 'transparent'
+            }} className={selectedDescription === 'geology' ? 'main__btn active' : 'main__btn'} onClick={() => setSelectedDescription('geology')}>03 Surface Geology</div>
           </div>
+         </div> 
+      </div>
+      <div className="main__extra-data">
+        <div className="main__extra-data-item">
+          <h3>Rotation Time</h3>
+          <span>{selectedPlanet?.rotation}</span>
         </div>
-        <div className="main__options">
-          <div className={selectedDescription === 'overview' ? 'main__btn active' : 'main__btn'} style={{
-            backgroundColor: selectedDescription === 'overview' ? getBackgroundColor() : 'transparent'
-          }} onClick={() => setSelectedDescription('overview')}>01 Overview</div>
-          <div style={{
-            backgroundColor: selectedDescription === 'structure' ? getBackgroundColor() : 'transparent'
-          }} className={selectedDescription === 'structure' ? 'main__btn active' : 'main__btn'}onClick={() => setSelectedDescription('structure')}>02 Internal Structure</div>
-          <div style={{
-            backgroundColor: selectedDescription === 'geology' ? getBackgroundColor() : 'transparent'
-          }} className={selectedDescription === 'geology' ? 'main__btn active' : 'main__btn'} onClick={() => setSelectedDescription('geology')}>03 Surface Geology</div>
+        <div className="main__extra-data-item">
+          <h3>Revolution Time</h3>
+          <span>{selectedPlanet?.revolution}</span>
         </div>
-       </div>
+        <div className="main__extra-data-item">
+          <h3>Radius</h3>
+          <span>{selectedPlanet?.radius}</span>
+        </div>
+        <div className="main__extra-data-item">
+          <h3>Average Temp.</h3>
+          <span>{selectedPlanet?.temperature}</span>
+        </div>
+      </div>
+      
     </main>
   )
 }
