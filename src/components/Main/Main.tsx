@@ -52,6 +52,17 @@ const Main: FC<MainProps> = ({ planetData }) => {
 
   return (
     <main className='main-container'>
+      <div className="main__options mobile">
+        <div className={selectedDescription === 'overview' ? 'main__btn active' : 'main__btn'} style={{
+          backgroundColor: selectedDescription === 'overview' ? getBackgroundColor() : 'transparent'
+        }} onClick={() => setSelectedDescription('overview')}>Overview</div>
+        <div style={{
+          backgroundColor: selectedDescription === 'structure' ? getBackgroundColor() : 'transparent'
+        }} className={selectedDescription === 'structure' ? 'main__btn active' : 'main__btn'}onClick={() => setSelectedDescription('structure')}>Internal Structure</div>
+        <div style={{
+          backgroundColor: selectedDescription === 'geology' ? getBackgroundColor() : 'transparent'
+        }} className={selectedDescription === 'geology' ? 'main__btn active' : 'main__btn'} onClick={() => setSelectedDescription('geology')}>Surface Geology</div>
+      </div>
       <div className="main__img-and-data-container">
       <div className="main__img-container">
           <img src={imgToDisplay} alt="planet" />
@@ -82,7 +93,7 @@ const Main: FC<MainProps> = ({ planetData }) => {
               )}
             </div>
           </div>
-          <div className="main__options">
+          <div className="main__options desktop">
             <div className={selectedDescription === 'overview' ? 'main__btn active' : 'main__btn'} style={{
               backgroundColor: selectedDescription === 'overview' ? getBackgroundColor() : 'transparent'
             }} onClick={() => setSelectedDescription('overview')}>01 Overview</div>

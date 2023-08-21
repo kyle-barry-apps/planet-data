@@ -32,3 +32,28 @@ nav {
 .nav-list .active {
   color: #93939F;
 }
+
+.nav-burger {
+  display: none;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  nav {
+    flex-direction: column; 
+    height: 10rem;
+  }
+}
+
+@media (max-width: 700px) {
+  nav {
+    flex-direction: row;
+    height: var(--nav-height);
+  }
+  .nav-list {
+    display: none;
+  }
+  .nav-burger {
+    display: block;
+  } 
+}

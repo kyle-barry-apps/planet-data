@@ -1,9 +1,12 @@
-import React, { FC, useContext } from 'react';
+import React, { FC, useState, useContext } from 'react';
 import { PlanetContext } from '../../contexts/PlanetContext';
 import './navigation.css';
 
 const Navigation: FC = () => {
   const planetContext = useContext(PlanetContext);
+  const [showMenu, setShowMenu] = useState<boolean>(false)
+
+  console.log(showMenu)
 
   if (!planetContext) {
     return null; 
@@ -26,6 +29,9 @@ const Navigation: FC = () => {
         <li className={planet === 'Uranus' ? 'active' : ''} onClick={() => setPlanet('Uranus')}>Uranus</li>
         <li className={planet === 'Neptune' ? 'active' : ''} onClick={() => setPlanet('Neptune')}>Neptune</li>
       </ul>
+      <div className='nav-burger' onClick={()=> setShowMenu(!showMenu)}>
+        <img src="/assets/icon-hamburger.svg" alt="burger menu" />
+      </div>
     </nav>
   );
 }
