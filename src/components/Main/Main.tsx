@@ -53,15 +53,9 @@ const Main: FC<MainProps> = ({ planetData }) => {
   return (
     <main className='main-container'>
       <div className="main__options mobile">
-        <div className={selectedDescription === 'overview' ? 'main__btn active' : 'main__btn'} style={{
-          backgroundColor: selectedDescription === 'overview' ? getBackgroundColor() : 'transparent'
-        }} onClick={() => setSelectedDescription('overview')}>Overview</div>
-        <div style={{
-          backgroundColor: selectedDescription === 'structure' ? getBackgroundColor() : 'transparent'
-        }} className={selectedDescription === 'structure' ? 'main__btn active' : 'main__btn'}onClick={() => setSelectedDescription('structure')}>Internal Structure</div>
-        <div style={{
-          backgroundColor: selectedDescription === 'geology' ? getBackgroundColor() : 'transparent'
-        }} className={selectedDescription === 'geology' ? 'main__btn active' : 'main__btn'} onClick={() => setSelectedDescription('geology')}>Surface Geology</div>
+        <div className={selectedDescription === 'overview' ? 'mobile__btn active' : 'mobile__btn'} onClick={() => setSelectedDescription('overview')}>Overview</div>
+        <div className={selectedDescription === 'structure' ? 'mobile__btn active' : 'mobile__btn'}onClick={() => setSelectedDescription('structure')}>Structure</div>
+        <div className={selectedDescription === 'geology' ? 'mobile__btn active' : 'mobile__btn'} onClick={() => setSelectedDescription('geology')}>Surface</div>
       </div>
       <div className="main__img-and-data-container">
       <div className="main__img-container">

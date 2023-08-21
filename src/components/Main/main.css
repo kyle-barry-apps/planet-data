@@ -8,6 +8,7 @@
   flex-direction: column;
   padding: 0rem 8rem 2rem 8rem;
   gap: 3rem;
+  position: relative;
 }
 
 .main__img-and-data-container {
@@ -80,8 +81,34 @@
 
 .main__options.mobile {
   flex-direction: row;
+  justify-content: space-evenly;
+  padding: 1rem 0rem;
   width: 100%;
+  max-width: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-bottom: 1px solid #9c9c9c;
+  left: 0;
+  position: absolute;
+  display: none;
+  z-index: 1000;
 }
+
+.mobile__btn {
+  position: relative;
+  cursor: pointer;
+}
+
+.mobile__btn.active::after {
+  content: '';
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: #419EBB;
+  position: absolute;
+  margin-top: .8rem;
+}
+
 
 .main__btn {
   font-family: 'League Spartan';
@@ -204,5 +231,9 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
+  }
+
+  .main__options.mobile {
+    display: flex;
   }
 }
