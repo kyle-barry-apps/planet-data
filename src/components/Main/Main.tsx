@@ -1,4 +1,4 @@
-import {FC, useContext, useState, useEffect} from 'react'
+import {FC, useContext, useState } from 'react'
 import { PlanetContext } from '../../contexts/PlanetContext';
 import Planet from '../../models/Planet'
 import './main.css'
@@ -66,7 +66,20 @@ const Main: FC<MainProps> = ({ planetData }) => {
               </p>
             </div>
             <div className="main__wiki">
-              Source : <a target='_blank' href={selectedPlanet?.overview.source}>Wikipedia</a>
+              Source:&nbsp;
+              {selectedDescription === 'overview' ? (
+                <a target='_blank' rel="noreferrer" href={selectedPlanet?.overview.source}>
+                  Wikipedia
+                </a>
+              ) : selectedDescription === 'structure' ? (
+                <a target='_blank' rel="noreferrer" href={`${selectedPlanet?.overview.source}#Internal_structure`}>
+                  Wikipedia
+                </a>
+              ) : (
+                <a target='_blank' rel="noreferrer" href={`${selectedPlanet?.overview.source}#Surface_geology`}>
+                  Wikipedia
+                </a>
+              )}
             </div>
           </div>
           <div className="main__options">
