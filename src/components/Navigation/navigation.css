@@ -17,6 +17,10 @@ nav {
   font-size: 2rem;
 }
 
+.nav-list-mobile {
+  display: none;
+}
+
 .nav-list {
   display: flex;
   list-style: none;
@@ -54,12 +58,12 @@ nav {
   .nav-list {
     display: none;
   }
-  .nav-list.mobile {
+  .nav-list-mobile {
     display: flex;
     flex-direction: column;
     background-color: hsl(240, 67%, 8%);
-    width: 100%;
-    min-height: 100%;
+    width: 100vw;
+    min-height: 100vh;
     position: absolute;
     left: 0;
     top: 5rem;
@@ -67,7 +71,7 @@ nav {
     padding: 2rem 2rem 0rem 2rem;
   }
 
-  .nav-list.mobile div {
+  .nav-list-mobile div {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -75,13 +79,16 @@ nav {
   }
 
   .mobile-list-item {
-    padding: 1rem;
+    padding: 1.5rem;
     border-bottom: 1px solid #595959;
   }
 
-  .nav-list.mobile div li {
+  .nav-list-mobile div li {
     font-size: 1.2rem;
     font-family: "League Spartan";
+    list-style: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
   .nav__planet-color {

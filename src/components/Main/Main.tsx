@@ -60,7 +60,7 @@ const Main: FC<MainProps> = ({ planetData }) => {
   };
 
   return (
-    <main className="main-container">
+    <main className={showMenu ? "main-container none" : "main-container"}>
       <div className="main__options mobile">
         <div
           className={
@@ -119,29 +119,56 @@ const Main: FC<MainProps> = ({ planetData }) => {
             <div className="main__wiki">
               Source:&nbsp;
               {selectedDescription === "overview" ? (
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={selectedPlanet?.overview.source}
-                >
-                  Wikipedia
-                </a>
+                <div className="external-link">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={selectedPlanet?.overview.source}
+                  >
+                    Wikipedia
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`${selectedPlanet?.overview.source}#Surface_geology`}
+                  >
+                    <img src="/assets/icon-source.svg" alt="external link" />
+                  </a>
+                </div>
               ) : selectedDescription === "structure" ? (
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={`${selectedPlanet?.overview.source}#Internal_structure`}
-                >
-                  Wikipedia
-                </a>
+                <div className="external-link">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`${selectedPlanet?.overview.source}#Internal_structure`}
+                  >
+                    Wikipedia
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`${selectedPlanet?.overview.source}#Surface_geology`}
+                  >
+                    <img src="/assets/icon-source.svg" alt="external link" />
+                  </a>
+                </div>
               ) : (
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  href={`${selectedPlanet?.overview.source}#Surface_geology`}
-                >
-                  Wikipedia
-                </a>
+                <div className="external-link">
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`${selectedPlanet?.overview.source}#Surface_geology`}
+                  >
+                    Wikipedia
+                  </a>
+                  <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`${selectedPlanet?.overview.source}#Surface_geology`}
+                  >
+                    <img src="/assets/icon-source.svg" alt="external link" />
+                  </a>
+                </div>
               )}
             </div>
           </div>
