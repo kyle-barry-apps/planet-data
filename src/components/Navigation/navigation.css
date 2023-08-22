@@ -25,13 +25,13 @@ nav {
 
 .nav-list li {
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: #ffffff;
   cursor: pointer;
   letter-spacing: 1px;
 }
 
 .nav-list .active {
-  color: #93939F;
+  color: #93939f;
 }
 
 .nav-burger {
@@ -41,7 +41,7 @@ nav {
 
 @media (max-width: 1000px) {
   nav {
-    flex-direction: column; 
+    flex-direction: column;
     height: 10rem;
   }
 }
@@ -57,14 +57,14 @@ nav {
   .nav-list.mobile {
     display: flex;
     flex-direction: column;
-    background-color: #070724;
+    background-color: hsl(240, 67%, 8%);
     width: 100%;
-    height: calc(100vh - var(--nav-height));
+    min-height: 100%;
     position: absolute;
     left: 0;
     top: 5rem;
     z-index: 100000;
-    padding: 2rem;
+    padding: 2rem 2rem 0rem 2rem;
   }
 
   .nav-list.mobile div {
@@ -74,11 +74,15 @@ nav {
     cursor: pointer;
   }
 
-  .nav-list.mobile div li {
-    font-size: 1.2rem;
-    font-family: 'League Spartan';
+  .mobile-list-item {
+    padding: 1rem;
+    border-bottom: 1px solid #595959;
   }
 
+  .nav-list.mobile div li {
+    font-size: 1.2rem;
+    font-family: "League Spartan";
+  }
 
   .nav__planet-color {
     height: 1rem;
@@ -89,5 +93,5 @@ nav {
 
   .nav-burger {
     display: block;
-  } 
+  }
 }

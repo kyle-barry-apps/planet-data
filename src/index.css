@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap'); 
+@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap");
 
-
-*, 
+*,
 *::before,
 *::after {
   margin: 0;
@@ -14,9 +13,7 @@
   --nav-height: 80px;
 }
 
-
 body {
-  font-family: 'Antonio', sans-serif;
-  height: 100vh;
+  font-family: "Antonio", sans-serif;
   width: 100vw;
 }

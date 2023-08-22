@@ -1,16 +1,22 @@
 import React, { FC, useState, useContext } from "react";
 import { PlanetContext } from "../../contexts/PlanetContext";
 import "./navigation.css";
+import { MenuContext } from "../../contexts/MenuContext";
 
 const Navigation: FC = () => {
   const planetContext = useContext(PlanetContext);
-  const [showMenu, setShowMenu] = useState<boolean>(false);
+  const menuContext = useContext(MenuContext);
 
   if (!planetContext) {
     return null;
   }
 
+  if (!menuContext) {
+    return null;
+  }
+
   const { planet, setPlanet } = planetContext;
+  const { showMenu, setShowMenu } = menuContext;
 
   const planetColors: { [key: string]: string } = {
     mercury: "#419EBB",
