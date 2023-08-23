@@ -34,8 +34,8 @@
 
 .main__geology-image {
   position: absolute;
-  bottom: -10%;
-  height: 15rem;
+  bottom: -20%;
+  height: 12rem;
 }
 
 .main__data {
@@ -203,6 +203,12 @@
   .main__data h1 {
     font-size: 50px;
   }
+
+  .main__geology-image {
+    position: absolute;
+    bottom: -10%;
+    height: 12rem;
+  }
 }
 
 @media (max-width: 700px) {
@@ -245,5 +251,10 @@
 
   .main__options.mobile {
     display: flex;
+  }
+
+  .main__geology-image {
+    bottom: 0;
+    height: 8rem;
   }
 }

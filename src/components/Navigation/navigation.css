@@ -43,6 +43,10 @@ nav {
   cursor: pointer;
 }
 
+.burger-menu.active {
+  filter: brightness(0.5);
+}
+
 @media (max-width: 1000px) {
   nav {
     flex-direction: column;

@@ -1,4 +1,4 @@
-import React, { FC, useState, useContext } from "react";
+import React, { FC, useContext } from "react";
 import { PlanetContext } from "../../contexts/PlanetContext";
 import "./navigation.css";
 import { MenuContext } from "../../contexts/MenuContext";
@@ -223,7 +223,11 @@ const Navigation: FC = () => {
         </li>
       </ul>
       <div className="nav-burger" onClick={() => setShowMenu(!showMenu)}>
-        <img src="/assets/icon-hamburger.svg" alt="burger menu" />
+        <img
+          className={showMenu ? "burger-menu active" : "burger-menu"}
+          src="/assets/icon-hamburger.svg"
+          alt="burger menu"
+        />
       </div>
     </nav>
   );
